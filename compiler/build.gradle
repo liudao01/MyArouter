@@ -1,26 +1,31 @@
-plugins {
-    id 'java-library'
-}
+//plugins {
+//    id 'java-library'
+//}
 
+apply plugin: 'java-library'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    // 背后的服务 能够监听 你是否在编译中.....
+    // 背后的服务 能够监听 你是否在编译中.....  这是java版的 和android 版的 autoservice 不是一个
     // AS3.4.1 + Gradle 5.1.1 + auto-service:1.0-rc4
     compileOnly'com.google.auto.service:auto-service:1.0-rc4'
-
-//    java编译时注解处理器
     annotationProcessor'com.google.auto.service:auto-service:1.0-rc4'
 
     // 帮助我们通过类调用的形式来生成Java代码 [JavaPoet]
-    implementation "com.squareup:javapoet:1.9.0"
+//    implementation "com.squareup:javapoet:1.9.0"
+    implementation 'com.squareup:javapoet:1.8.0'
 
-    // 依赖 用作定义注解的库
+    // 依赖注解
     implementation project(":arouter-annotations")
 
+
+
 }
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
-}
+//java {
+//    sourceCompatibility = JavaVersion.VERSION_1_7
+//    targetCompatibility = JavaVersion.VERSION_1_7
+//}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"

@@ -4,16 +4,23 @@ plugins {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    buildToolsVersion "30.0.1"
 
     defaultConfig {
         applicationId "com.example.myarouter"
-        minSdkVersion 19
+        minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // 传递参数  为什么需要这个 因为如果模块名字变了 需要改很多地方, 使用参数传递避免改动过多.
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [student: 'hello ni hao student javapoet']
+            }
+        }
     }
 
     buildTypes {
@@ -22,10 +29,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_7
+//        targetCompatibility JavaVersion.VERSION_1_7
+//    }
     buildFeatures {
         viewBinding true
     }
@@ -44,4 +51,8 @@ dependencies {
 
     // 依赖 用作定义注解的库
     implementation project(":arouter-annotations")
+
+
+    // 依赖注解处理器 注解处理器才能工作
+    annotationProcessor project(":compiler")
 }

@@ -10,9 +10,9 @@ import java.lang.annotation.Target;
  */
 ///** Class, interface (including annotation type), or enum declaration */
 @Target(ElementType.TYPE) //目标在类上
-@Retention(RetentionPolicy.CLASS)
+@Retention(RetentionPolicy.CLASS)//保留级别
 //保留级别是编译期
-public @interface Arouter {
+public @interface ARouter {
     String path();
 
     String group() default "";

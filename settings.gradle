@@ -1,4 +1,4 @@
-rootProject.name = "MyArouter"
 include ':app'
 include ':compiler'
 include ':arouter-annotations'
+rootProject.name = "MyArouter"

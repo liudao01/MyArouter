@@ -13,9 +13,9 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.myarouter.databinding.ActivityMainBinding;
 import com.google.android.material.snackbar.Snackbar;
-import com.myarouter.arouter_annotations.Arouter;
+import com.myarouter.arouter_annotations.ARouter;
 
-@Arouter(path = "MainActivity")
+@ARouter(path = "/app/MainActivity")
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
